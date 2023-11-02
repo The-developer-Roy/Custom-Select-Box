@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Select Box</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500&family=Roboto+Mono&family=Young+Serif&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="select_box">
+            <p class="select_name">Select Course</p>
+            <i class='bx bx-chevron-down'></i>
+        </div>
+        <div class="select_item_box">
+            <div class="select_item">
+                <i class='bx bxl-html5'></i>
+                <p class="item_name">HTML</p>
+            </div>
+            <div class="select_item">
+                <i class='bx bxl-css3'></i>
+                <p class="item_name">CSS</p>
+            </div>
+            <div class="select_item">
+                <i class='bx bxl-javascript'></i>
+                <p class="item_name">Javascript</p>
+            </div>
+            <div class="select_item">
+                <i class='bx bxl-react'></i>
+                <p class="item_name">React JS</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var select_box = document.querySelector('.select_box');
+        var select_item_box = document.querySelector('.select_item_box');
+        var select_item = document.querySelectorAll('.select_item');
+
+        select_box.addEventListener('click', ()=>{
+            select_box.classList.toggle('active');
+        });
+
+        select_item.forEach((item)=>{
+            item.addEventListener('click', ()=>{
+                var saveTheName = item.children[1].innerHTML;
+                console.log(saveTheName);
+                document.querySelector('.select_name').innerHTML = saveTheName;
+                select_box.classList.remove('active');
+            })
+        })
+    </script>
+</body>
+</html>
